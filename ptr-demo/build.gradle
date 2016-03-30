@@ -37,6 +37,7 @@ android {
     dexOptions {
         preDexLibraries = false
     }
+    buildToolsVersion '23.0.2'
 }
 
 

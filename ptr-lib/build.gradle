@@ -26,6 +26,7 @@ android {
 
         androidTest.setRoot('tests')
     }
+    buildToolsVersion '23.0.2'
 }
 
 dependencies {
