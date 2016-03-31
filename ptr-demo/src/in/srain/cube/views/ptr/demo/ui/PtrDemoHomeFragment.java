@@ -6,20 +6,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+
 import in.srain.cube.mints.base.BlockMenuFragment;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.demo.R;
-import in.srain.cube.views.ptr.demo.ui.classic.*;
+import in.srain.cube.views.ptr.demo.mytest.MyTestActivity;
+import in.srain.cube.views.ptr.demo.ui.classic.AutoRefresh;
+import in.srain.cube.views.ptr.demo.ui.classic.EvenOnlyATextView;
+import in.srain.cube.views.ptr.demo.ui.classic.HideHeader;
+import in.srain.cube.views.ptr.demo.ui.classic.KeepHeader;
+import in.srain.cube.views.ptr.demo.ui.classic.PullToRefresh;
+import in.srain.cube.views.ptr.demo.ui.classic.ReleaseToRefresh;
+import in.srain.cube.views.ptr.demo.ui.classic.WithGridView;
+import in.srain.cube.views.ptr.demo.ui.classic.WithListView;
+import in.srain.cube.views.ptr.demo.ui.classic.WithListViewAndEmptyView;
+import in.srain.cube.views.ptr.demo.ui.classic.WithScrollView;
+import in.srain.cube.views.ptr.demo.ui.classic.WithTextViewInFrameLayoutFragment;
+import in.srain.cube.views.ptr.demo.ui.classic.WithWebView;
 import in.srain.cube.views.ptr.demo.ui.storehouse.StoreHouseUsingPointList;
 import in.srain.cube.views.ptr.demo.ui.storehouse.StoreHouseUsingString;
 import in.srain.cube.views.ptr.demo.ui.storehouse.StoreHouseUsingStringArray;
 import in.srain.cube.views.ptr.demo.ui.viewpager.ViewPagerActivity;
 import in.srain.cube.views.ptr.header.StoreHouseHeader;
-
-import java.util.ArrayList;
 
 public class PtrDemoHomeFragment extends BlockMenuFragment {
 
@@ -186,10 +199,13 @@ public class PtrDemoHomeFragment extends BlockMenuFragment {
             }
         }));
 
-        itemInfos.add(newItemInfo(R.string.ptr_demo_placeholder, R.color.cube_mints_4d90fe, new OnClickListener() {
+        itemInfos.add(newItemInfo("自定义动画", R.color.cube_mints_4d90fe, new OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), MyTestActivity.class);
+                startActivity(intent);
             }
         }));
         itemInfos.add(newItemInfo(R.string.ptr_demo_placeholder, R.color.cube_mints_4d90fe, new OnClickListener() {
