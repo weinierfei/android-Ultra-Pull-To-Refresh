@@ -11,12 +11,10 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.demo.R;
-import in.srain.cube.views.ptr.header.StoreHouseHeader;
 
 /**
  * Description:
@@ -38,12 +36,10 @@ public class MyTestActivity extends Activity {
         setContentView(R.layout.activity_mytest);
         ButterKnife.bind(this);
 
-        StoreHouseHeader header = new StoreHouseHeader(this);
-        header.setPadding(0, LocalDisplay.dp2px(20), 0, LocalDisplay.dp2px(20));
-//        header.initWithString("Allinmd");
 
+        MyHead header = new MyHead(this);
 
-        ptrFrameLayout.setDurationToCloseHeader(500);
+        ptrFrameLayout.setDurationToCloseHeader(1500);
         ptrFrameLayout.setHeaderView(header);
         ptrFrameLayout.addPtrUIHandler(header);
         ptrFrameLayout.setPtrHandler(new PtrHandler() {
