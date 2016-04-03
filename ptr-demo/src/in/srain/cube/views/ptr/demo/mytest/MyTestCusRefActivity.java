@@ -37,6 +37,19 @@ public class MyTestCusRefActivity extends Activity {
         ButterKnife.bind(this);
 
 
+        pullRefLay.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                pullRefLay.autoRefresh(true);
+
+                for (int i = 0; i < 30; i++) {
+                    datas.add("我是item==" + i);
+                }
+            }
+        }, 150);
+
+
+
         pullRefLay.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
@@ -61,10 +74,6 @@ public class MyTestCusRefActivity extends Activity {
             }
         });
 
-
-        for (int i = 0; i < 30; i++) {
-            datas.add("我是item==" + i);
-        }
 
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, datas);
         listview.setAdapter(adapter);
