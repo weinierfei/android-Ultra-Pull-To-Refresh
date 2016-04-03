@@ -30,6 +30,8 @@ public class MyTestActivity extends Activity {
 
     List<String> datas = new ArrayList<>();
 
+    ArrayAdapter adapter ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,10 @@ public class MyTestActivity extends Activity {
         ptrFrameLayout.setDurationToCloseHeader(1500);
         ptrFrameLayout.setHeaderView(header);
         ptrFrameLayout.addPtrUIHandler(header);
+        ptrFrameLayout.setKeepHeaderWhenRefresh(true);
+        ptrFrameLayout.setPullToRefresh(false);
+        header.setLastUpdateTimeRelateObject(this);
+
         ptrFrameLayout.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
@@ -54,6 +60,13 @@ public class MyTestActivity extends Activity {
                     @Override
                     public void run() {
                         ptrFrameLayout.refreshComplete();
+
+                        for (int j = 0; j < 5; j++) {
+                            datas.add("我是新增item==" + j);
+                        }
+
+                        adapter.notifyDataSetChanged();
+
                     }
                 }, 1500);
             }
@@ -64,7 +77,9 @@ public class MyTestActivity extends Activity {
         for (int i = 0; i < 30; i++) {
             datas.add("我是item==" + i);
         }
-        listview.setAdapter(new ArrayAdapter(this, android.R.layout.simple_list_item_1, datas));
+
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, datas);
+        listview.setAdapter(adapter);
 
 
     }

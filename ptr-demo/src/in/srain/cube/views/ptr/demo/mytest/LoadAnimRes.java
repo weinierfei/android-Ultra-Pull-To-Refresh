@@ -2,16 +2,18 @@ package in.srain.cube.views.ptr.demo.mytest;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
+import android.util.Log;
 
 import in.srain.cube.views.ptr.demo.R;
 
 
 public class LoadAnimRes {
-	private static int[] dropDownAnimResIds = { R.drawable.load_01,
-			R.drawable.load_01, R.drawable.load_01, R.drawable.load_01,
-			R.drawable.load_01, R.drawable.load_01, R.drawable.load_01,
-			R.drawable.load_01, R.drawable.load_01, R.drawable.load_01,
-			R.drawable.load_01, R.drawable.load_01, R.drawable.load_02,
+
+    private static final String TAG = "LoadAnimRes";
+
+	private static int[] dropDownAnimResIds = {
+            R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,R.drawable.load_01,
+            R.drawable.load_01, R.drawable.load_02,
 			R.drawable.load_03, R.drawable.load_04, R.drawable.load_05,
 			R.drawable.load_06, R.drawable.load_07, R.drawable.load_08,
 			R.drawable.load_09, R.drawable.load_10, R.drawable.load_11,
@@ -24,35 +26,33 @@ public class LoadAnimRes {
 	private static AnimationDrawable dropDownLoadingAnimDrawable;
 
 	public static int getDropDownResId(float offset) {
-//		if (offset <= 0) {
-//			return dropDownAnimResIds[0];
-//		} else if (offset >= 1) {
-//			return dropDownAnimResIds[dropDownAnimResIds.length - 1];
-//		}
-		int pos = (int) (offset % 24);
+
+        Log.i(TAG,"offset="+offset);
+
+        if (offset <= 0){
+            return dropDownAnimResIds[0];
+        }else if (offset >= 34){
+            return dropDownAnimResIds[dropDownAnimResIds.length - 1];
+        }
+
+		int pos = (int) (offset % dropDownAnimResIds.length);
+        Log.i(TAG,"pos="+pos);
 		return dropDownAnimResIds[pos];
 	}
 
 	public static AnimationDrawable getDropDownLoadingAnimDrawable(
 			Context context) {
-		if (dropDownLoadingAnimDrawable == null) {
-			dropDownLoadingAnimDrawable = new AnimationDrawable();
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_01), 10);
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_02), 10);
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_03), 10);
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_04), 10);
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_05), 10);
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_06), 10);
-			dropDownLoadingAnimDrawable.addFrame(context.getResources()
-					.getDrawable(R.drawable.loading_07), 10);
-			dropDownLoadingAnimDrawable.setOneShot(false);
-		}
-		return dropDownLoadingAnimDrawable;
+        if (dropDownLoadingAnimDrawable == null) {
+            dropDownLoadingAnimDrawable = new AnimationDrawable();
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_01), 10);
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_02), 10);
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_03), 10);
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_04), 10);
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_05), 10);
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_06), 10);
+            dropDownLoadingAnimDrawable.addFrame(context.getResources().getDrawable(R.drawable.loading_07), 10);
+            dropDownLoadingAnimDrawable.setOneShot(false);
+        }
+        return dropDownLoadingAnimDrawable;
 	}
 }

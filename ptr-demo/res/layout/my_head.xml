@@ -18,16 +18,18 @@
 
             <TextView
                 android:id="@+id/ptr_classic_header_rotate_view_header_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textColor="#666666"
                 android:textSize="12sp"
                 tool:text="下拉刷新"/>
 
             <TextView
                 android:id="@+id/ptr_classic_header_rotate_view_header_last_update"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_marginTop="2dp"
                 android:textColor="#999999"
                 android:textSize="10sp"
@@ -42,18 +44,11 @@
             android:layout_toLeftOf="@+id/ptr_classic_header_rotate_view_header_text">
 
             <ImageView
-                android:id="@+id/ptr_classic_header_rotate_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/arrow"
+                android:layout_width="27dp"
+                android:layout_height="34dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ptr_rotate_arrow"/>
-
-            <ProgressBar
-                android:id="@+id/ptr_classic_header_rotate_view_progressbar"
-                style="@android:style/Widget.ProgressBar.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+                android:src="@drawable/load_01"/>
         </FrameLayout>
     </RelativeLayout>
 
