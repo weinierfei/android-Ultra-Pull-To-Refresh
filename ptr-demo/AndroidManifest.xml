@@ -33,6 +33,7 @@
 
 
         <activity android:name=".mytest.MyTestActivity"/>
+        <activity android:name=".mytest.MyTestCusRefActivity"/>
 
     </application>
 

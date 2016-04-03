@@ -16,6 +16,7 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.demo.R;
 import in.srain.cube.views.ptr.demo.mytest.MyTestActivity;
+import in.srain.cube.views.ptr.demo.mytest.MyTestCusRefActivity;
 import in.srain.cube.views.ptr.demo.ui.classic.AutoRefresh;
 import in.srain.cube.views.ptr.demo.ui.classic.EvenOnlyATextView;
 import in.srain.cube.views.ptr.demo.ui.classic.HideHeader;
@@ -208,10 +209,13 @@ public class PtrDemoHomeFragment extends BlockMenuFragment {
                 startActivity(intent);
             }
         }));
-        itemInfos.add(newItemInfo(R.string.ptr_demo_placeholder, R.color.cube_mints_4d90fe, new OnClickListener() {
+        itemInfos.add(newItemInfo("测试完成", R.color.cube_mints_4d90fe, new OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), MyTestCusRefActivity.class);
+                startActivity(intent);
             }
         }));
         itemInfos.add(newItemInfo(R.string.ptr_demo_placeholder, R.color.cube_mints_4d90fe, new OnClickListener() {
