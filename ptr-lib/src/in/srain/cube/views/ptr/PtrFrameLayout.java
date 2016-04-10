@@ -3,6 +3,7 @@ package in.srain.cube.views.ptr;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.*;
 import android.widget.Scroller;
 import android.widget.TextView;
@@ -62,6 +63,9 @@ public class PtrFrameLayout extends ViewGroup {
     private long mLoadingStartTime = 0;
     private PtrIndicator mPtrIndicator;
     private boolean mHasSendCancelEvent = false;
+
+    public int maxPullOffset = 0;
+
     private Runnable mPerformRefreshCompleteDelay = new Runnable() {
         @Override
         public void run() {
@@ -308,6 +312,14 @@ public class PtrFrameLayout extends ViewGroup {
                 float offsetX = mPtrIndicator.getOffsetX();
                 float offsetY = mPtrIndicator.getOffsetY();
 
+/***************添加下拉最大距离控制**********************/
+                if (maxPullOffset > mPtrIndicator.getOffsetToRefresh()){
+                    if (mPtrIndicator.getLastPosY() > maxPullOffset){
+                        return true;
+                    }
+                }
+/*************************************/
+                Log.i("change","change=="+offsetY  + "      offsetX"+offsetX);
                 if (mDisableWhenHorizontalMove && !mPreventForHorizontal && (Math.abs(offsetX) > mPagingTouchSlop && Math.abs(offsetX) > Math.abs(offsetY))) {
                     if (mPtrIndicator.isInStartPosition()) {
                         mPreventForHorizontal = true;

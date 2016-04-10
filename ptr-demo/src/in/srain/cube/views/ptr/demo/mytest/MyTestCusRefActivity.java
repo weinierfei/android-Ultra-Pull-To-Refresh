@@ -37,6 +37,7 @@ public class MyTestCusRefActivity extends Activity {
         ButterKnife.bind(this);
 
 
+        pullRefLay.setMaxPullOffset(230);
         pullRefLay.postDelayed(new Runnable() {
             @Override
             public void run() {

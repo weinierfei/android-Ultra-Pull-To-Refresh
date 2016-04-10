@@ -64,4 +64,9 @@ public class PullToRefFrameLayout extends PtrFrameLayout {
         }
     }
 
+
+    public void setMaxPullOffset(int offset){
+        this.maxPullOffset = offset;
+    }
+
 }
