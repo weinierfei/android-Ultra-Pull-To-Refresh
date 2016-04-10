@@ -7,12 +7,12 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="16" />
+        android:targetSdkVersion="16"/>
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".app.PtrDemoApplication"
@@ -22,14 +22,18 @@
         android:theme="@style/CubeTheme.NoWindowAniAndNoTitle">
         <activity android:name=".ui.activity.PtrDemoHomeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <activity
             android:name=".ui.viewpager.ViewPagerActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"></activity>
+
+
+        <activity android:name=".mytest.MyTestActivity"/>
+        <activity android:name=".mytest.MyTestCusRefActivity"/>
 
     </application>
 
